@@ -10,7 +10,8 @@ console.log('Running boardGames.js')
 Level 1
 
 Code: 
-  Write a function called "listGames" that takes in a type as an argument and returns an array of just the names of the games within a specified type. 
+  Write a function called "listGames" that takes in a type as an argument and returns an array of 
+  just the names of the games within a specified type. 
 
 Invoke: 
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -25,15 +26,33 @@ e.g.
       ["Candy Land", "Connect Four", "Operation", "Trouble"]
 
 Annotate:
-  After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
+  After you find a solution, write out the steps of that solution.  Break them down as much as possible.
+  realized i cant iterarte over the hash directly, i had to iterate over the list that holds the types
+  use for each to give itaret over the type and give me the type names in an array 
+  we can do the same with map
 */
-
-
+// function listGames(type) {
+//    var typeG = []
+//    boardGames[type].forEach((typ) => {
+//     typeG.push(typ.name)
+    
+//   })
+//   return typeG
+// }
+// console.log(listGames("strategy"))
+// function listGames(type) {
+//   var typeG = boardGames[type].map((currentT) => {
+//   return currentT.name
+//  })
+//  return typeG
+// }
+// console.log(listGames("strategy"))
 /*
 Level 2
 
 Code: 
-  Write a function called "findHighestRatedGamesByType" that takes in a type as an argument returns an object which is the highest rated game within the specified type.
+  Write a function called "findHighestRatedGamesByType" that takes in a type as an argument 
+  returns an object which is the highest rated game within the specified type.
 
 Invoke:
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -49,9 +68,40 @@ e.g.
 
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
+
+   i need to compareall rating values and return the object with 
+   the highest value. i am thinking i have to 
+   somehow compare each objects rating with the first one. 
+   if the second one is not greater then the first, then
+   the first stays as the greatests. if at some point one is greater, 
+   that one becomes the one compared against the following ones
+   reduce with no initial value, takes the first elem as initial value
+
 */
 
-
+// function findHighestRatedGamesByType(type) {
+//   let topGame = boardGames[type].reduce((bestSoFar, currentGame) => {
+//     if (currentGame.rating > bestSoFar.rating) {
+//       return currentGame; // currentGame becomes new bestSoFar
+//     } else {
+//       return bestSoFar; // keep the current best
+//     }
+//   });
+//   return topGame
+// }
+// console.log(findHighestRatedGamesByType("party"))
+function findHighestRatedGamesByType(type) {
+    let gamesArray = boardGames[type]
+    let bestSoFar = null
+    gamesArray.forEach((game) => {
+     if(bestSoFar === null || game.rating > bestSoFar.rating) {
+           bestSoFar = game
+    }
+  })
+    return bestSoFar
+  }
+  console.log(findHighestRatedGamesByType("party"))
+//{ name: 'Azul', rating: 8.8, maxPlayers: 4 }
 /*
 Level 3
 
