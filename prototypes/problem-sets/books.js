@@ -22,17 +22,33 @@ e.g.
       ]
 
 Annotate:
-  After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
+  After you find a solution, write out the steps of that solution.  Break them down as much as possible.
+  filter and get the objects that are not horror. map and get the names from that. pay attention to key names. if you have multiple value to compare, use and and write the condition again
 */
+// function removeViolence(booksP) {
+//   var filterBooks = booksP.filter(book => book.genre !== 'Horror' && book.genre !== 'True Crime')
+//   console.log(filterBooks)
+//   var mappedArray = filterBooks.map(map => map.title)
+//   return mappedArray
+// }
+// console.log(removeViolence(books))
 
-
-
+// function removeViolence(booksP) {
+//   var namesArray = []
+//   booksP.forEach((book) => {
+//     if (book.genre !== "Horror" && book.genre !== "True Crime") {
+//       namesArray.push(book.title)
+//     }
+//   })
+//   return namesArray
+// }
+// console.log(removeViolence(books))
 /*
 Level 2
 
 Code: 
   Write a function called "getByGenre" that takes 2 arguments: the books data, and a specified genre.  The function should return an array of objects containing all books of that genre.
-
+ 
 Invoke:
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
 e.g.
@@ -76,9 +92,17 @@ Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+// function getByGenre (data, genre) {
+//  var genreBooks = []
+//  data.forEach((book) => {
+//   if(book.genre === genre) {
+//     genreBooks.push(book)
+//   }
+//  })
+//  return genreBooks
+// }
 
-
-
+// console.log(getByGenre(books, "Satire"))
 /*
 Level 3
 
@@ -106,7 +130,17 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible.  
 */
-
+// function getByGenre (data, genre) {
+//   var genreBooks = []
+//   data.forEach((book) => {
+//    if(book.genre === genre) {
+//      genreBooks.push(book.title)
+//    }
+//   })
+//   return genreBooks
+//  }
+ 
+//  console.log(getByGenre(books, "Satire"))
 
 
 /*
@@ -135,7 +169,16 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible.  
 */
-  
+// function getByGenre (data, genre, year) {
+//   var genreBooks = []
+//   data.forEach((book) => {
+//    if(book.genre === genre && book.published > year) {
+//      genreBooks.push(book.title)
+//    }
+//   })
+//   return genreBooks
+//  }
+//  console.log(getByGenre(books, "Science Fiction", 1950))
 
 
 /*
