@@ -203,7 +203,20 @@ Annotation:
 */
 
 
-
+// filter to first get objects based on years.
+//  map to delete the author and genre keys. 
+// the idea of DESCTRUCTURING!! take the genre property out of the book object, and put everything else into a new object called rest or smth
+// 
+function getNewBooks() {
+  var booksFilter = books.filter(book => book.published >= 1990 && book.published < 2010)
+  // console.log(booksFilter)
+  var mappedArray = booksFilter.map((book) => {
+     const {author, genre, ...rest} = book
+     return rest 
+  })
+  return mappedArray
+}
+ console.log(getNewBooks())
 /*
 Level 6
 
