@@ -27,7 +27,20 @@ e.g.
 Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
-
+// i have an object of objects. how do i iterate over that. i have the string "scar", and I want to get the corresponding boss object from the bosses data.  how do I use that string as a key?
+// object entries transforms an object of objects in arrays of arrays. so i after i transofrm them all, since i have an argument that leads towards only one key, i will filter that. that gives me an array with that argument. to get the specific keys of that argument, i need to dig and get the object. 
+// function getBossData(bossKey) {
+//   const allBossEntries = Object.entries(bosses);
+//   const filtered = allBossEntries.filter(entry => entry[0] === bossKey);
+//   console.log(filtered)
+//   const onlyBossObject = filtered[0][1];
+//   console.log(onlyBossObject)
+//   result =    `${onlyBossObject.name}'s signature move is ${onlyBossObject.signatureMove}.`
+//   return result
+    
+    
+// }
+// console.log(getBossData("scar"))
 
 /*
 Level 2
@@ -56,6 +69,18 @@ Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+// function getBossData(bossKey, datapoint) {
+//   const allBossEntries = Object.entries(bosses);
+//   const filtered = allBossEntries.filter(entry => entry[0] === bossKey);
+//   console.log(filtered)
+//   // const onlyBossObject = filtered[0][1];
+//   // console.log(onlyBossObject)
+//   result =  `${filtered[0][1].name}'s ${datapoint} is ${filtered[0][1][datapoint]}.`
+//   return result
+    
+    
+// }
+// console.log(getBossData("scar", "archnemesis"))
 
 /*
 Level 3
@@ -75,6 +100,21 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
+function getLoyalty(arg) {
+  const onlySide = bosses[arg].sidekicks
+  // console.log(onlySide)
+
+  const onlyLoyalty = []
+  onlySide.forEach((item) => {
+    onlyLoyalty.push(item.loyaltyToBoss)
+  })
+  const result = onlyLoyalty.reduce((acc, nr) => {
+        acc += nr
+        return acc
+  },0)
+  return result / onlyLoyalty.length
+}
+console.log(getLoyalty("scar"))
 
 
 /*
